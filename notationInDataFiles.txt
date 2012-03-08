@@ -1,0 +1,48 @@
+Each line in the data files contains the SEVEN (7) words BEFORE and
+the SEVEN (7) AFTER the word in question (eg "affect" or "effect").
+
+Each word is annotated as follows:
+
+     WORD [ POS-tag STEM'ed-version ]
+
+where "POS-tag" is the estimated "part of speech," produced by the
+Stanford NLP part-of-speech tagger; see 
+http://www.computing.dcu.ie/~acahill/tagset.html for an explanation
+of the short names.  And, where "STEM'ed-version" is the result of
+applying the Porter stemmer to WORD.  (You can find the Stanford and
+Porter s/w on the web if you'd like, however it isn't necessary for
+this HW since we've preprocessed all the data already.)
+
+You should assume that all the TRAINING data uses the correct "center"
+word, though it is of course possible that authors made grammatical
+errors.  This is just another source of possible "noise" in our data.
+
+In the TEST set, the job of your algorithms is to PREDICT WHICH OF THE
+TWO WORDS IN A GIVEN PAIR belongs in the center position (ie, in order
+to detect "spelling" errors).  
+
+It is very important to notice that the TEST-SET files are different
+than the training-set files.  In the training set, each phrase
+appears once with the (presumably) correct center word.
+However, in the TEST examples, we include TWO versions of each
+phrase.  The first version uses the CORRECT center word
+and the second version of the phrase uses the INCORRECT center word.
+We need to do this because the POS tagger can tag the neighboring
+words differently depending on what word is in the center.
+
+In other words, imagine that in the testset, the middle word is a
+XXXXX (ie, an unknown word), and the job of
+your algorithms is to predict which of the two possible center
+words (eg, affect vs. effect) is more likely.  Your code can then
+count how often the correct guess is made, since, just like in
+HW1, the test sets contain the right answer.  (Remember, even
+though YOU know that the first of the two paired phrases in the testset
+is always the correct one, your algorithms - other than the code that
+measures correctness - must not make use of this fact.)
+
+PS - This data was obtained from twenty iconic novels from the free
+e-books site http://www.gutenberg.org/. You may even recognize some
+of the phrases if you have read some of these novels in an English
+literature class. The data has not been culled for offensive language, 
+except for a few occurrences I noticed; if anyone notices any more I'll 
+be glad to delete those lines.
